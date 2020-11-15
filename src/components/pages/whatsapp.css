@@ -1,0 +1,11 @@
+.whatspp-link {
+    position: fixed;
+    bottom:5%;
+    right:2%;
+    width: 70px;
+    height: 70px;
+}
+.whatspp-link img{
+    width:100%;
+    height:100%;
+}
