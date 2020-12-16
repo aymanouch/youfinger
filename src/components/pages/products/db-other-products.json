@@ -1,0 +1,10 @@
+{
+    "otherProducts" : [{
+        "id":1,
+        "name" : "stich hand",
+        "price" : 199,
+        "prevPrice": 350,
+        "type" : "NEVER BEEN USED BUT DOES NOT HAVE EXTRA SPINDLE, NEEDLE THREADER, EXTRA NEEDLES OR EXTRA BOBBINS ",
+        "img":"images/products-img/stichhand.png"
+    }]
+}

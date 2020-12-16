@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar'
@@ -10,7 +10,7 @@ import ProShow from './components/pages/ProShow/ProShow';
 import Form from './components/pages/Form/Form';
 import Whatsapp from './components/pages/Whatsapp';
 
-
+const dbOtherProducts = require('./components/pages/products/db-other-products.json');
 function App() {
   return (
     <Router>
@@ -19,6 +19,7 @@ function App() {
         <Route path="/" exact component={Home}/>
         <Route path='/products' exact component={Products} />
         {dbProducts.map(item => {
+          item.perfume=true;
           return (
             <Route path={`/${item.name}`} exact key={item.id}><ProShow {...item}/></Route>
           );
@@ -27,7 +28,18 @@ function App() {
           dbProducts.map(item => {
             return (<Route path={`/demmande-${item.name}`} key={item.id + "domand"} exact><Form info={{name:item.name, src:item.img, price:item.price}}/></Route>);
           })
-        }
+        } 
+        {dbOtherProducts.otherProducts.map(item => {
+          item.perfume=false;
+          return (
+            <Route path={`/${item.name}`} exact key={item.id}><ProShow {...item} perfume={false}/></Route>
+          );
+        })}
+        {
+          dbOtherProducts.otherProducts.map(item => {
+            return (<Route path={`/demmande-${item.name}`} key={item.id + "domand"} exact><Form info={{name:item.name, src:item.img, price:item.price}}/></Route>);
+          })
+        } 
       </Switch>
       <Whatsapp />
       <Footer />
